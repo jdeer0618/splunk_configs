@@ -1,0 +1,3 @@
+---
+- name: create indexes config file
+  template: src=indexes.conf.j2 dest=/tmp/splunk-conf/indexes.conf

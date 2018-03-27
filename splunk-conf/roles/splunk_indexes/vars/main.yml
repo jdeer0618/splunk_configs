@@ -1,0 +1,54 @@
+---
+#indexes:
+#  - name: default
+#    more_settings:
+#      - "anotherValue = where-does-this-gofdsfsd"
+#      - "timeout = 1000"
+global_settings:
+  - name: default
+    more_settings:
+      - "defaultDatabase = default_db"
+      - "lastChanceIndex = last_chance"
+      - "frozenTimePeriodInSecs = 15811200"
+      - "quarantinePastSecs = 31622400"
+      - "enabledTsidxReduction = true"
+      - "timePeriodInSecBeforeTsidxReduction = 7776000"
+
+default_indexes:
+  - name: main
+  - name: history
+  - name: summary
+  - name: _internal
+  - name: splunklogger
+  - name: _introspection
+  - name: _audit
+  - name: _thefishbucket
+  - name: _telemetry
+
+app_indexes:
+  - name: alerts
+  - name: scm
+  - name: scm_signal
+  - name: scm_terrain_event
+  - name: scm_relevancy_graph
+  - name: scm_transaction_instance
+  - name: xtreme_contexts
+  - name: vmware-esxilog
+
+custom_indexes:
+  - name: anueagg
+  - name: bit9
+  - name: bluecoat
+  - name: bro
+  - name: carbon_black
+  - name: cisco_acs
+  - name: ciscocda
+  - name: dam
+  - name: defentder
+  - name: esxi
+  - name: f5
+  - name: juniperweb
+  - name: mcafee
+  - name: mcafee-wg
+    more_settings:
+      - "maxDataSize = auto_high_volume"

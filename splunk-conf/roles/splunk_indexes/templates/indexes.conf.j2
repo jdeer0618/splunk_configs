@@ -1,0 +1,53 @@
+################ Global Index Settings ################
+{% for index in global_settings %}
+[{{ index.name }}]
+{% if index.more_settings is defined %}
+{% for setting in index.more_settings %}
+{{ setting }}
+{% endfor %}
+{% endif %}
+
+{% endfor %}
+
+################ Default Splunk Indexes ################
+{% for index in default_indexes | sort %}
+[{{ index.name }}]
+homePath   = $SPLUNK_DB/$_index_name/db
+coldPath   = $SPLUNK_DB/$_index_name/colddb
+thawedPath = $SPLUNK_DB/{{ index.name }}/thaweddb
+coldToFrozenDir = /mnt/splunk-cold/frozen/{{ index.name }}
+{% if index.more_settings is defined %}
+{% for setting in index.more_settings %}
+{{ setting }}
+{% endfor %}
+{% endif %}
+
+{% endfor %}
+################ Splunkbase App Indexes ################
+{% for index in app_indexes | sort %}
+[{{ index.name }}]
+homePath   = $SPLUNK_DB/$_index_name/db
+coldPath   = $SPLUNK_DB/$_index_name/colddb
+thawedPath = $SPLUNK_DB/{{ index.name }}/thaweddb
+coldToFrozenDir = /mnt/splunk-cold/frozen/{{ index.name }}
+{% if index.more_settings is defined %}
+{% for setting in index.more_settings %}
+{{ setting }}
+{% endfor %}
+{% endif %}
+
+{% endfor %}
+################ Custom Splunk Indexes ################
+{% for index in custom_indexes | sort %}
+[{{ index.name }}]
+homePath   = $SPLUNK_DB/$_index_name/db
+coldPath   = $SPLUNK_DB/$_index_name/colddb
+thawedPath = $SPLUNK_DB/{{ index.name }}/thaweddb
+coldToFrozenDir = /mnt/splunk-cold/frozen/{{ index.name }}
+{% if index.more_settings is defined %}
+{% for setting in index.more_settings %}
+{{ setting }}
+{% endfor %}
+{% endif %}
+
+{% endfor %}
